@@ -1,0 +1,109 @@
+/* ============================================================
+   styles.css — Brasaland Custom Styles
+   
+   Minimal styles for things Tailwind CDN can't easily handle:
+   - Skip link visibility
+   - Hamburger menu animations
+   - Branded focus rings
+   - Success toast animation
+   ============================================================ */
+
+/* ===== Font setup ===== */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ===== Skip to content (accessibility) ===== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 100;
+  padding: 8px 16px;
+  background-color: #dc2626;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+  transition: top 0.1s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: none;
+}
+
+/* ===== Mobile menu slide animation ===== */
+#mobile-menu {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#mobile-menu:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Form input base styles ===== */
+.form-input {
+  font-size: 16px;  /* Prevents iOS zoom on focus */
+  background-color: #fff;
+}
+
+.form-input:focus {
+  outline: none;
+}
+
+/* ===== Form error state ===== */
+.form-input.border-red-500:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+/* ===== Custom select dropdown arrow ===== */
+select.form-input {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+  padding-right: 40px;
+}
+
+/* ===== Checkbox custom styles ===== */
+input[type="checkbox"]:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+  background-size: 14px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ===== Success banner animation ===== */
+#form-success:not(.hidden) {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Smooth scrolling ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Minimum tap target size for mobile ===== */
+button, a, select, input[type="checkbox"] + span {
+  min-height: 44px;
+}
+
+/* ===== Print styles ===== */
+@media print {
+  header, footer, .skip-link {
+    display: none;
+  }
+}

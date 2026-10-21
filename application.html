@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Brasa Points — Brasaland Loyalty Program</title>
+  <meta name="description" content="Sign up for Brasaland's new digital loyalty program, Brasa Points. Earn points with every visit and redeem them for discounts and free dishes." />
+  <meta name="keywords" content="Brasaland, Brasa Points, loyalty program, sign up, registration, grilled food" />
+  <meta name="author" content="Brasaland" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Join Brasa Points — Brasaland Loyalty Program" />
+  <meta property="og:description" content="Sign up for Brasaland's new digital loyalty program. Earn points with every visit!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://brasaland.com/application" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip to content (accessibility) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== HEADER (same as landing page) ===== -->
+  <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50" role="banner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-2 text-red-700 font-extrabold text-xl md:text-2xl no-underline" aria-label="Brasaland home">
+          <i class="fa-solid fa-fire-flame-curved text-orange-500"></i>
+          <span>Brasaland</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+          <a href="index.html" class="text-gray-700 hover:text-red-700 font-medium transition-colors">Home</a>
+          <a href="index.html#locations" class="text-gray-700 hover:text-red-700 font-medium transition-colors">Locations</a>
+          <a href="index.html#menu" class="text-gray-700 hover:text-red-700 font-medium transition-colors">Menu</a>
+          <a href="index.html#brasa-points" class="text-gray-700 hover:text-red-700 font-medium transition-colors">Brasa Points</a>
+          <a href="index.html#contact" class="text-gray-700 hover:text-red-700 font-medium transition-colors">Contact</a>
+        </nav>
+        <a href="application.html" class="hidden md:inline-flex items-center gap-2 bg-red-700 hover:bg-red-800 text-white font-semibold px-5 py-2.5 rounded-full transition-colors no-underline">
+          <i class="fa-solid fa-gift"></i>
+          Join Brasa Points
+        </a>
+        <button id="menu-toggle" class="md:hidden p-2 text-gray-700 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-lg" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 pt-2 bg-white border-t border-gray-100" role="navigation" aria-label="Mobile navigation">
+      <nav class="flex flex-col gap-3">
+        <a href="index.html" class="text-gray-700 hover:text-red-700 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">Home</a>
+        <a href="index.html#locations" class="text-gray-700 hover:text-red-700 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">Locations</a>
+        <a href="index.html#menu" class="text-gray-700 hover:text-red-700 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">Menu</a>
+        <a href="index.html#brasa-points" class="text-gray-700 hover:text-red-700 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">Brasa Points</a>
+        <a href="index.html#contact" class="text-gray-700 hover:text-red-700 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">Contact</a>
+        <a href="application.html" class="mt-2 inline-flex items-center justify-center gap-2 bg-red-700 hover:bg-red-800 text-white font-semibold px-5 py-3 rounded-full transition-colors no-underline">
+          <i class="fa-solid fa-gift"></i>
+          Join Brasa Points
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content" class="pt-24 md:pt-28 pb-16 bg-gray-50 min-h-screen">
+
+    <!-- Page Header -->
+    <div class="bg-gradient-to-br from-red-700 to-red-900 text-white py-14 md:py-20">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <div class="inline-flex items-center gap-2 bg-white/20 text-orange-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <i class="fa-solid fa-gift"></i>
+          <span>Brasa Points Loyalty Program</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">Join Brasa Points</h1>
+        <p class="text-lg sm:text-xl text-orange-100">
+          Fill in your details below and start earning points with every visit.
+        </p>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 -mt-8">
+      <form id="application-form" class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-10" novalidate>
+        <div id="form-success" class="hidden bg-green-50 border border-green-200 text-green-700 rounded-xl p-6 mb-8" role="alert">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-check text-green-600 text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-green-800 mb-1">Application Submitted!</h3>
+              <p class="text-green-600">Thank you for joining Brasa Points! Check your email for your membership details.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <!-- === Section: Personal Details === -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-900 mb-1">Personal Details</h2>
+            <p class="text-sm text-gray-500 mb-6">Tell us a little about yourself.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <!-- Full Name -->
+              <div class="sm:col-span-2">
+                <label for="full-name" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                  Full Name <span class="text-red-500" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="full-name"
+                  name="fullName"
+                  class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                  placeholder="e.g. Juan Pérez"
+                  autocomplete="name"
+                  required
+                  aria-required="true"
+                />
+                <p id="full-name-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></p>
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label for="email" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                  Email <span class="text-red-500" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                  aria-required="true"
+                />
+                <p id="email-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></p>
+              </div>
+
+              <!-- Phone -->
+              <div>
+                <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                  Phone <span class="text-red-500" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                  placeholder="+57 300 123 4567"
+                  autocomplete="tel"
+                  required
+                  aria-required="true"
+                />
+                <p id="phone-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- === Section: Location === -->
+          <div class="border-t border-gray-200 pt-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-1">Location</h2>
+            <p class="text-sm text-gray-500 mb-6">Where are you from and which location do you visit?</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <!-- Country -->
+              <div>
+                <label for="country" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                  Country <span class="text-red-500" aria-hidden="true">*</span>
+                </label>
+                <select
+                  id="country"
+                  name="country"
+                  class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 bg-white focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors appearance-none"
+                  required
+                  aria-required="true"
+                >
+                  <option value="">Select a country</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="United States">United States</option>
+                </select>
+                <p id="country-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></p>
+              </div>
+
+              <!-- City -->
+              <div>
+                <label for="city" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                  City <span class="text-red-500" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                  placeholder="e.g. Medellín"
+                  autocomplete="address-level2"
+                  required
+                  aria-required="true"
+                />
+                <p id="city-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></p>
+              </div>
+
+              <!-- Favorite Location (dynamic based on country) -->
+              <div class="sm:col-span-2">
+                <label for="favorite-location" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                  Favorite Location <span class="text-red-500" aria-hidden="true">*</span>
+                </label>
+                <select
+                  id="favorite-location"
+                  name="favoriteLocation"
+                  class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 bg-white focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors appearance-none"
+                  required
+                  aria-required="true"
+                >
+                  <option value="">Select a country first</option>
+                </select>
+                <p id="favorite-location-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- === Section: Preferences === -->
+          <div class="border-t border-gray-200 pt-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-1">Preferences</h2>
+            <p class="text-sm text-gray-500 mb-6">Help us personalize your experience.</p>
+            <div class="space-y-5">
+              <!-- Dietary Preferences (checkboxes) -->
+              <fieldset>
+                <legend class="block text-sm font-semibold text-gray-700 mb-3">Dietary Preferences <span class="text-gray-400 font-normal">(optional)</span></legend>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  <label class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors has-[:checked]:border-red-300 has-[:checked]:bg-red-50">
+                    <input type="checkbox" name="dietary" value="none" class="w-5 h-5 text-red-600 focus:ring-red-500 rounded border-gray-300" />
+                    <span class="text-gray-700">No preference</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors has-[:checked]:border-red-300 has-[:checked]:bg-red-50">
+                    <input type="checkbox" name="dietary" value="vegetarian" class="w-5 h-5 text-red-600 focus:ring-red-500 rounded border-gray-300" />
+                    <span class="text-gray-700">Vegetarian</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors has-[:checked]:border-red-300 has-[:checked]:bg-red-50">
+                    <input type="checkbox" name="dietary" value="vegan" class="w-5 h-5 text-red-600 focus:ring-red-500 rounded border-gray-300" />
+                    <span class="text-gray-700">Vegan</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors has-[:checked]:border-red-300 has-[:checked]:bg-red-50">
+                    <input type="checkbox" name="dietary" value="gluten-free" class="w-5 h-5 text-red-600 focus:ring-red-500 rounded border-gray-300" />
+                    <span class="text-gray-700">Gluten-free</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors has-[:checked]:border-red-300 has-[:checked]:bg-red-50">
+                    <input type="checkbox" name="dietary" value="other" class="w-5 h-5 text-red-600 focus:ring-red-500 rounded border-gray-300" />
+                    <span class="text-gray-700">Other</span>
+                  </label>
+                </div>
+                <p id="dietary-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></p>
+              </fieldset>
+
+              <!-- How did you find us? -->
+              <div>
+                <label for="referral" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                  How did you find us? <span class="text-red-500" aria-hidden="true">*</span>
+                </label>
+                <select
+                  id="referral"
+                  name="referral"
+                  class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 bg-white focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors appearance-none min-h-[44px]"
+                  required
+                  aria-required="true"
+                >
+                  <option value="">Select an option</option>
+                  <option value="social-media">Social Media</option>
+                  <option value="friend-family">Friend or Family</option>
+                  <option value="google">Google Search</option>
+                  <option value="walk-in">Walk-in</option>
+                  <option value="advertisement">Advertisement</option>
+                  <option value="other">Other</option>
+                </select>
+                <p id="referral-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- === Submit === -->
+          <div class="border-t border-gray-200 pt-8 space-y-4">
+            <p class="text-sm text-gray-500">
+              <span class="text-red-500" aria-hidden="true">*</span> Required fields
+            </p>
+            <button
+              type="submit"
+              id="submit-btn"
+              class="w-full sm:w-auto bg-red-700 hover:bg-red-800 text-white font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300 min-h-[44px]"
+            >
+              <i class="fa-solid fa-gift mr-2"></i>
+              Submit Application
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-900 text-gray-400 py-12" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start gap-2 text-white font-extrabold text-xl mb-2">
+            <i class="fa-solid fa-fire-flame-curved text-orange-500"></i>
+            <span>Brasaland</span>
+          </div>
+          <p class="text-sm">&copy; 2025 Brasaland. All rights reserved.</p>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="https://instagram.com/brasaland" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-orange-400 transition-colors text-2xl min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Follow us on Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://facebook.com/brasaland" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-orange-400 transition-colors text-2xl min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Follow us on Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </div>
+        <nav aria-label="Footer navigation" class="flex flex-wrap justify-center gap-4 text-sm">
+          <a href="index.html" class="hover:text-white transition-colors no-underline">Home</a>
+          <a href="index.html#locations" class="hover:text-white transition-colors no-underline">Locations</a>
+          <a href="index.html#menu" class="hover:text-white transition-colors no-underline">Menu</a>
+          <a href="index.html#brasa-points" class="hover:text-white transition-colors no-underline">Brasa Points</a>
+          <a href="index.html#contact" class="hover:text-white transition-colors no-underline">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Hamburger Menu Script (same as landing page) -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', function () {
+        const isOpen = !mobileMenu.classList.toggle('hidden');
+        menuToggle.setAttribute('aria-expanded', isOpen);
+        menuIcon.classList.toggle('fa-bars');
+        menuIcon.classList.toggle('fa-xmark');
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          mobileMenu.classList.add('hidden');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuIcon.classList.remove('fa-xmark');
+          menuIcon.classList.add('fa-bars');
+        });
+      });
+    }
+  </script>
+  <!-- Form validation -->
+  <script src="validation.js"></script>
+</body>
+</html>
