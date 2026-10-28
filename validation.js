@@ -44,6 +44,16 @@
       required: true,
       message: 'Please select your favorite Brasaland location.'
     },
+    dateOfBirth: {
+      required: true,
+      minAge: 18,
+      message: 'You must be at least 18 years old to join Brasa Points.',
+      requiredMessage: 'Please enter your date of birth.'
+    },
+    terms: {
+      required: true,
+      message: 'You must accept the terms and conditions to continue.'
+    },
     referral: {
       required: true,
       message: 'Please tell us how you found us.'
@@ -86,15 +96,26 @@
     fullName: document.getElementById('full-name'),
     email: document.getElementById('email'),
     phone: document.getElementById('phone'),
+    dateOfBirth: document.getElementById('date-of-birth'),
     country: document.getElementById('country'),
     city: document.getElementById('city'),
     favoriteLocation: document.getElementById('favorite-location'),
-    referral: document.getElementById('referral')
+    referral: document.getElementById('referral'),
+    terms: document.getElementById('terms'),
+    offersOptIn: document.getElementById('offers-opt-in')
   };
+
+  /**
+   * Convert a camelCase string to kebab-case so object keys
+   * map to HTML ids (e.g. fullName -> full-name).
+   */
+  function toKebabCase(str) {
+    return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+  }
 
   var errorEls = {};
   Object.keys(fields).forEach(function (key) {
-    errorEls[key] = document.getElementById(key + '-error');
+    errorEls[key] = document.getElementById(toKebabCase(key) + '-error');
   });
 
   // ============================================================
@@ -111,7 +132,7 @@
     var trimmed = (typeof value === 'string') ? value.trim() : String(value || '');
 
     if (rules.required && trimmed === '') {
-      return rules.message;
+      return rules.requiredMessage || rules.message;
     }
 
     if (trimmed === '') {
@@ -126,7 +147,33 @@
       return rules.message;
     }
 
+    if (rules.minAge) {
+      var age = calculateAge(trimmed);
+      if (age < rules.minAge) {
+        return rules.message;
+      }
+    }
+
     return null;
+  }
+
+  /**
+   * Calculate age from a date string (YYYY-MM-DD or MM/DD/YYYY).
+   * @param {string} dateStr - The date of birth value.
+   * @returns {number} Age in years, or Infinity if invalid.
+   */
+  function calculateAge(dateStr) {
+    var date = new Date(dateStr);
+    if (isNaN(date.getTime())) {
+      return Infinity; // invalid date — let pattern/required handle messaging
+    }
+    var today = new Date();
+    var age = today.getFullYear() - date.getFullYear();
+    var monthDiff = today.getMonth() - date.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < date.getDate())) {
+      age--;
+    }
+    return age;
   }
 
   /**
@@ -179,7 +226,8 @@
 
     if (!field || !rules) return true;
 
-    var value = field.value;
+    // Checkboxes use .checked, not .value
+    var value = (field.type === 'checkbox') ? (field.checked ? 'true' : '') : field.value;
     var error = validateField(value, rules);
 
     if (error) {
@@ -286,20 +334,7 @@
 
     // Reset form after 5 seconds
     setTimeout(function () {
-      form.reset();
-      updateLocationOptions(); // reset location dropdown
-      clearAllErrors();
-
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fa-solid fa-gift mr-2"></i> Submit Application';
-        submitBtn.classList.remove('bg-green-600', 'cursor-not-allowed');
-        submitBtn.classList.add('bg-red-700', 'hover:bg-red-800');
-      }
-
-      if (successBanner) {
-        successBanner.classList.add('hidden');
-      }
+      resetForm();
     }, 5000);
   }
 
@@ -310,6 +345,35 @@
     Object.keys(fields).forEach(function (id) {
       clearError(id);
     });
+  }
+
+  /**
+   * Reset the entire form to its initial state:
+   * clears inputs, errors, the success banner, and restores
+   * the submit button.
+   */
+  function resetForm() {
+    form.reset();
+    updateLocationOptions(); // restore the "Select a country first" placeholder
+    clearAllErrors();
+
+    var submitBtn = document.getElementById('submit-btn');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="fa-solid fa-gift mr-2"></i> Submit Application';
+      submitBtn.classList.remove('bg-green-600', 'cursor-not-allowed');
+      submitBtn.classList.add('bg-red-700', 'hover:bg-red-800');
+    }
+
+    if (successBanner) {
+      successBanner.classList.add('hidden');
+    }
+
+    // Move focus to the first field for accessibility
+    var firstField = document.getElementById('full-name');
+    if (firstField) {
+      firstField.focus();
+    }
   }
 
   // ============================================================
@@ -347,6 +411,21 @@
 
     // Form submit handler
     form.addEventListener('submit', handleSubmit);
+
+    // Reset button — clears the whole form
+    var resetBtn = document.getElementById('reset-btn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function () {
+        resetForm();
+      });
+    }
+
+    // Validate terms checkbox on change
+    if (fields.terms) {
+      fields.terms.addEventListener('change', function () {
+        checkField('terms');
+      });
+    }
 
     // Initialize location dropdown
     updateLocationOptions();

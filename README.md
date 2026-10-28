@@ -59,6 +59,25 @@ You are building **one company** across many milestones and projects. Each top-l
 
 ---
 
+## Running the live site
+
+The Milestone 1 corporate website lives at the repo root (`index.html` landing page + `application.html` sign-up form, with `styles.css` and `validation.js` alongside). It is a static site with no build step — just serve the folder with any static file server.
+
+From the repo root:
+
+```bash
+npx --yes serve . -l 3000
+```
+
+Then open:
+
+- Landing page: <http://localhost:3000/>
+- Application form: <http://localhost:3000/application.html>
+
+> `npx --yes serve` fetches and runs the `serve` package on the fly, so no install is required. If port `3000` is busy, use a different one, e.g. `npx --yes serve . -l 8080`.
+
+---
+
 ## Folder guide — what goes where
 
 Read the linked `README.md` inside each folder before you start coding there.
